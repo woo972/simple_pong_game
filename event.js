@@ -92,15 +92,19 @@ function changeBallDirection(){
         switch(currentDirection) {
             case BALL_DIRECTION.LEFT_DOWN:
                 currentDirection = zeroOrOne ? BALL_DIRECTION.RIGHT_DOWN : BALL_DIRECTION.RIGHT_UP;
+                ball.Pointer.x = bar1.Pointer.x + bar1.Size.width; // 막대 옆으로 좌표를 강제로 세팅하여 버그를 방지한다
                 break;
             case BALL_DIRECTION.LEFT_UP:
                 currentDirection = zeroOrOne ? BALL_DIRECTION.RIGHT_DOWN : BALL_DIRECTION.RIGHT_UP;
+                ball.Pointer.x = bar1.Pointer.x + bar1.Size.width; // 막대 옆으로 좌표를 강제로 세팅하여 버그를 방지한다
                 break;
             case BALL_DIRECTION.RIGHT_DOWN:
                 currentDirection = zeroOrOne ? BALL_DIRECTION.LEFT_DOWN : BALL_DIRECTION.LEFT_UP;
+                ball.Pointer.x = bar2.Pointer.x - ball.Size.width; // 막대 옆으로 좌표를 강제로 세팅하여 버그를 방지한다
                 break;
             case BALL_DIRECTION.RIGHT_UP:
                 currentDirection = zeroOrOne ? BALL_DIRECTION.LEFT_DOWN : BALL_DIRECTION.LEFT_UP;
+                ball.Pointer.x = bar2.Pointer.x - ball.Size.width; // 막대 옆으로 좌표를 강제로 세팅하여 버그를 방지한다
                 break;
         }
     }else if(collisionType == COLLISION_TYPE.WALL){
